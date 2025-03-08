@@ -25,6 +25,12 @@ class MemeParamsMismatchPolicy(BaseModel):
     too_few_image: Literal["ignore", "prompt", "get"] = "ignore"
 
 
+class MultipleImageConfig(BaseModel):
+    direct_send_threshold: int = 10
+    send_zip_file: bool = True
+    send_forward_msg: bool = False
+
+
 class Config(BaseModel):
     memes_command_prefixes: Optional[list[str]] = None
     memes_disabled_list: list[str] = []
@@ -34,13 +40,14 @@ class Config(BaseModel):
     memes_use_default_when_no_text: bool = False
     memes_random_meme_show_info: bool = True
     memes_list_image_config: MemeListImageConfig = MemeListImageConfig()
+    memes_multiple_image_config: MultipleImageConfig = MultipleImageConfig()
 
 
 memes_config = get_plugin_config(Config)
 
 
 if memes_config.memes_check_resources_on_startup:
-    from meme_generator import check_resources_in_background
+    from meme_generator.resources import check_resources_in_background
     from nonebot import get_driver
 
     driver = get_driver()

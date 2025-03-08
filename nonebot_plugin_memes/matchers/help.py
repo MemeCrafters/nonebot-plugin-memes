@@ -1,6 +1,6 @@
 from datetime import datetime, timedelta, timezone
 
-from meme_generator import MemeProperties, MemeSortBy, render_meme_list
+from meme_generator.tools import MemeProperties, MemeSortBy, render_meme_list
 from nonebot.log import logger
 from nonebot.utils import run_sync
 from nonebot_plugin_alconna import Image, Text, on_alconna

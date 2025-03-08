@@ -175,6 +175,34 @@ memes_list_image_config='
 '
 ```
 
+#### `memes_multiple_image_config`
+
+- 类型：`MultipleImageConfig`
+- 说明：发送多张图片时的相关设置，其中具体设置项如下：
+  - `direct_send_threshold`
+    - 类型：`int`
+    - 默认：`10`
+    - 说明：发送图片数量大于该数目时，不再直接发送，而是以文件或合并转发消息的形式发送
+  - `send_zip_file`
+    - 类型：`bool`
+    - 默认：`True`
+    - 说明：发送图片数量大于 `direct_send_threshold` 时，是否打包为zip以文件形式发送
+  - `send_forward_msg`
+    - 类型：`bool`
+    - 默认：`False`
+    - 说明：发送图片数量大于 `direct_send_threshold` 时，是否发送合并转发消息
+- `memes_multiple_image_config` 在 `.env` 文件中的设置示例如下：
+
+```
+memes_multiple_image_config='
+{
+  "direct_send_threshold": 10,
+  "send_zip_file": true,
+  "send_forward_msg": true
+}
+'
+```
+
 ### 使用
 
 **以下命令需要加 [NoneBot 命令前缀](https://nonebot.dev/docs/appendices/config#command-start-和-command-separator) (默认为`/`)，可自行添加空字符**

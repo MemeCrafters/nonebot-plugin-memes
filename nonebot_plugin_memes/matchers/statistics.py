@@ -2,7 +2,7 @@ from datetime import datetime, timedelta
 from typing import Any, Optional, Union
 
 from dateutil.relativedelta import relativedelta
-from meme_generator import MemeStatisticsType, render_meme_statistics
+from meme_generator.tools import MemeStatisticsType, render_meme_statistics
 from nonebot.log import logger
 from nonebot.matcher import Matcher
 from nonebot.utils import run_sync

@@ -51,7 +51,6 @@ from nonebot_plugin_waiter import waiter
 from ..config import memes_config
 from ..manager import meme_manager
 from ..recorder import record_meme_generation
-from ..utils import NetworkError
 from .utils import UserId
 
 alc_config.command_max_count += 1000
@@ -79,9 +78,9 @@ async def process(
             meme_images.append(MemeImage(image.name, result))
     except NotImplementedError:
         await matcher.finish("当前平台可能不支持下载图片")
-    except (NetworkError, AdapterException):
+    except AdapterException:
         logger.warning(traceback.format_exc())
-        await matcher.finish("图片下载出错，请稍后再试")
+        await matcher.finish("图片下载出错")
 
     result = await run_sync(meme.generate)(meme_images, texts, options)
 
@@ -153,7 +152,7 @@ async def handle_params(
                             user = member.user
                             if member.nick:
                                 user.nick = member.nick
-                    except (NotImplementedError, NetworkError, AdapterException):
+                    except (NotImplementedError, AdapterException):
                         pass
                 if not user:
                     user = await interface.get_user(msg_seg.target)
@@ -162,7 +161,7 @@ async def handle_params(
                         images.append(Image(name=user_name(user), url=image_url))
             except NotImplementedError:
                 logger.warning("当前平台可能不支持获取用户信息")
-            except (NetworkError, AdapterException):
+            except AdapterException:
                 logger.warning(f"用户信息获取出错：\n{traceback.format_exc()}")
 
         elif isinstance(msg_seg, Image):
@@ -177,7 +176,7 @@ async def handle_params(
                             images.append(Image(name=user_name(user), url=image_url))
                 except NotImplementedError:
                     logger.warning("当前平台可能不支持获取用户信息")
-                except (NetworkError, AdapterException):
+                except AdapterException:
                     logger.warning(f"用户信息获取出错：\n{traceback.format_exc()}")
 
             elif text == "自己":

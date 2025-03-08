@@ -15,13 +15,13 @@ nonebot-plugin-alconna = ">=0.46.3,<1.0.0"
 nonebot-plugin-uninfo = ">=0.6.1,<1.0.0"
 nonebot-plugin-localstore = ">=0.6.0,<1.0.0"
 nonebot-plugin-orm = ">=0.7.0,<1.0.0"
-httpx = ">=0.20.0,<1.0.0"
 meme-generator = "^0.2.0b2"
 pyyaml = "^6.0"
 python-dateutil = "^2.8.2"
 
 [tool.poetry.group.dev.dependencies]
 nonebot-plugin-orm = { extras = ["default"], version = ">=0.7.0,<1.0.0" }
+nonebot-adapter-onebot = "^2.2.0"
 
 [tool.nonebot]
 plugins = ["nonebot_plugin_memes"]
