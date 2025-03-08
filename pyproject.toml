@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "nonebot_plugin_memes"
-version = "0.8.0b2"
+version = "0.8.0b3"
 description = "Nonebot2 plugin for making memes"
 authors = ["meetwq <meetwq@gmail.com>"]
 license = "MIT"
@@ -15,11 +15,12 @@ nonebot-plugin-alconna = ">=0.46.3,<1.0.0"
 nonebot-plugin-uninfo = ">=0.6.1,<1.0.0"
 nonebot-plugin-localstore = ">=0.6.0,<1.0.0"
 nonebot-plugin-orm = ">=0.7.0,<1.0.0"
-meme-generator = "^0.2.0b2"
+meme-generator = "^0.2.0b10"
 pyyaml = "^6.0"
 python-dateutil = "^2.8.2"
 
 [tool.poetry.group.dev.dependencies]
+nonebot2 = { extras = ["fastapi"], version = "^2.3.0" }
 nonebot-plugin-orm = { extras = ["default"], version = ">=0.7.0,<1.0.0" }
 nonebot-adapter-onebot = "^2.2.0"
 
