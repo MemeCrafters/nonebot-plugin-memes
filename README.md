@@ -9,7 +9,7 @@
 _✨ [Nonebot2](https://github.com/nonebot/nonebot2) 表情包制作插件 ✨_
 
 <p align="center">
-  <img src="https://img.shields.io/github/license/noneplugin/nonebot-plugin-memes" alt="license">
+  <img src="https://img.shields.io/github/license/MemeCrafters/nonebot-plugin-memes" alt="license">
   <img src="https://img.shields.io/badge/python-3.9+-blue.svg" alt="Python">
   <img src="https://img.shields.io/badge/nonebot-2.3.0+-red.svg" alt="NoneBot">
   <a href="https://pypi.org/project/nonebot-plugin-memes">
@@ -24,7 +24,7 @@ _✨ [Nonebot2](https://github.com/nonebot/nonebot2) 表情包制作插件 ✨_
 
 本插件是 [表情包生成器 meme-generator](https://github.com/MemeCrafters/meme-generator-rs) 的 [Nonebot2](https://github.com/nonebot/nonebot2) 对接插件，方便通过聊天机器人制作表情包
 
-另有 [nonebot-plugin-memes-api](https://github.com/noneplugin/nonebot-plugin-memes-api)（表情包制作 调用 api 版本），可以将 NoneBot 插件与 `meme-generator` 分开部署
+另有 [nonebot-plugin-memes-api](https://github.com/MemeCrafters/nonebot-plugin-memes-api)（表情包制作 调用 api 版本），可以将 NoneBot 插件与 `meme-generator` 分开部署
 
 `nonebot-plugin-memes-api` 与 `nonebot-plugin-memes` 功能上基本一致
 
@@ -44,7 +44,7 @@ pip install nonebot_plugin_memes
 
 并按照 [NoneBot 加载插件](https://nonebot.dev/docs/tutorial/create-plugin#加载插件) 加载插件
 
-#### 配置驱动器 ​
+#### 配置驱动器
 
 插件需要“客户端型驱动器”（如 httpx）来下载图片等，驱动器安装和配置参考 [NoneBot 选择驱动器](https://nonebot.dev/docs/advanced/driver)
 
