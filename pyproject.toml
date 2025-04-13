@@ -18,6 +18,7 @@ nonebot-plugin-orm = ">=0.7.0,<1.0.0"
 meme-generator = "^0.2.0"
 pyyaml = "^6.0"
 python-dateutil = "^2.8.2"
+filetype = "^1.2.0"
 
 [tool.poetry.group.dev.dependencies]
 nonebot2 = { extras = ["fastapi", "httpx"], version = "^2.3.0" }

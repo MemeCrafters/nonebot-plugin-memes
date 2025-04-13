@@ -1,4 +1,3 @@
-import imghdr
 import tempfile
 from datetime import datetime
 from io import BytesIO
@@ -6,6 +5,7 @@ from pathlib import Path
 from typing import Annotated
 from zipfile import ZIP_BZIP2, ZipFile
 
+import filetype
 from meme_generator import Meme
 from nonebot.adapters import Bot, Event
 from nonebot.matcher import Matcher
@@ -94,7 +94,7 @@ def zip_images(files: list[bytes]):
     output = BytesIO()
     with ZipFile(output, "w", ZIP_BZIP2) as zip_file:
         for i, file in enumerate(files):
-            ext = imghdr.what(None, h=file)
+            ext = filetype.guess_extension(file)
             zip_file.writestr(f"{i}.{ext}", file)
     return output
 
