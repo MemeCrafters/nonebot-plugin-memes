@@ -105,6 +105,17 @@ arclet-alconna = ">=1.8.31"
 nepattern = ">=0.7.3,<1.0.0"
 
 [[package]]
+name = "certifi"
+version = "2025.1.31"
+description = "Python package for providing Mozilla's CA Bundle."
+optional = false
+python-versions = ">=3.6"
+files = [
+    {file = "certifi-2025.1.31-py3-none-any.whl", hash = "sha256:ca78db4565a652026a4db2bcdf68f2fb589ea80d0be70e03929ed730746b84fe"},
+    {file = "certifi-2025.1.31.tar.gz", hash = "sha256:3d5da6925056f6f18f119200434a4780a94263f10d1c21d032a6f6b2baa20651"},
+]
+
+[[package]]
 name = "click"
 version = "8.1.8"
 description = "Composable command line interface toolkit"
@@ -261,6 +272,53 @@ files = [
 ]
 
 [[package]]
+name = "h2"
+version = "4.2.0"
+description = "Pure-Python HTTP/2 protocol implementation"
+optional = false
+python-versions = ">=3.9"
+files = [
+    {file = "h2-4.2.0-py3-none-any.whl", hash = "sha256:479a53ad425bb29af087f3458a61d30780bc818e4ebcf01f0b536ba916462ed0"},
+    {file = "h2-4.2.0.tar.gz", hash = "sha256:c8a52129695e88b1a0578d8d2cc6842bbd79128ac685463b887ee278126ad01f"},
+]
+
+[package.dependencies]
+hpack = ">=4.1,<5"
+hyperframe = ">=6.1,<7"
+
+[[package]]
+name = "hpack"
+version = "4.1.0"
+description = "Pure-Python HPACK header encoding"
+optional = false
+python-versions = ">=3.9"
+files = [
+    {file = "hpack-4.1.0-py3-none-any.whl", hash = "sha256:157ac792668d995c657d93111f46b4535ed114f0c9c8d672271bbec7eae1b496"},
+    {file = "hpack-4.1.0.tar.gz", hash = "sha256:ec5eca154f7056aa06f196a557655c5b009b382873ac8d1e66e79e87535f1dca"},
+]
+
+[[package]]
+name = "httpcore"
+version = "1.0.8"
+description = "A minimal low-level HTTP client."
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "httpcore-1.0.8-py3-none-any.whl", hash = "sha256:5254cf149bcb5f75e9d1b2b9f729ea4a4b883d1ad7379fc632b727cec23674be"},
+    {file = "httpcore-1.0.8.tar.gz", hash = "sha256:86e94505ed24ea06514883fd44d2bc02d90e77e7979c8eb71b90f41d364a1bad"},
+]
+
+[package.dependencies]
+certifi = "*"
+h11 = ">=0.13,<0.15"
+
+[package.extras]
+asyncio = ["anyio (>=4.0,<5.0)"]
+http2 = ["h2 (>=3,<5)"]
+socks = ["socksio (==1.*)"]
+trio = ["trio (>=0.22.0,<1.0)"]
+
+[[package]]
 name = "httptools"
 version = "0.6.4"
 description = "A collection of framework independent HTTP protocol utils."
@@ -314,6 +372,42 @@ files = [
 
 [package.extras]
 test = ["Cython (>=0.29.24)"]
+
+[[package]]
+name = "httpx"
+version = "0.28.1"
+description = "The next generation HTTP client."
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "httpx-0.28.1-py3-none-any.whl", hash = "sha256:d909fcccc110f8c7faf814ca82a9a4d816bc5a6dbfea25d6591d6985b8ba59ad"},
+    {file = "httpx-0.28.1.tar.gz", hash = "sha256:75e98c5f16b0f35b567856f597f06ff2270a374470a5c2392242528e3e3e42fc"},
+]
+
+[package.dependencies]
+anyio = "*"
+certifi = "*"
+h2 = {version = ">=3,<5", optional = true, markers = "extra == \"http2\""}
+httpcore = "==1.*"
+idna = "*"
+
+[package.extras]
+brotli = ["brotli", "brotlicffi"]
+cli = ["click (==8.*)", "pygments (==2.*)", "rich (>=10,<14)"]
+http2 = ["h2 (>=3,<5)"]
+socks = ["socksio (==1.*)"]
+zstd = ["zstandard (>=0.18.0)"]
+
+[[package]]
+name = "hyperframe"
+version = "6.1.0"
+description = "Pure-Python HTTP/2 framing"
+optional = false
+python-versions = ">=3.9"
+files = [
+    {file = "hyperframe-6.1.0-py3-none-any.whl", hash = "sha256:b03380493a519fce58ea5af42e4a42317bf9bd425596f7a0835ffce80f1a42e5"},
+    {file = "hyperframe-6.1.0.tar.gz", hash = "sha256:f630908a00854a7adeabd6382b43923a4c4cd4b821fcb527e6ab9e15382a3b08"},
+]
 
 [[package]]
 name = "idna"
@@ -479,16 +573,16 @@ files = [
 
 [[package]]
 name = "meme-generator"
-version = "0.2.0b11"
+version = "0.2.0"
 description = "Python bindings for meme_generator"
 optional = false
 python-versions = ">=3.9"
 files = [
-    {file = "meme_generator-0.2.0b11-cp39-abi3-macosx_10_12_x86_64.whl", hash = "sha256:8b17c6e088202e64f3f55dfba9937a72d2f3ac9a5f58e145b526163207559cce"},
-    {file = "meme_generator-0.2.0b11-cp39-abi3-macosx_11_0_arm64.whl", hash = "sha256:73b327a16ba550226b048025ac4677e679942cfa7b6e8cdbf9c46fca3763cab5"},
-    {file = "meme_generator-0.2.0b11-cp39-abi3-manylinux_2_28_aarch64.whl", hash = "sha256:731257a7f338abcbf2268975a432b0823b677e63496e1e473200b5eb4639a404"},
-    {file = "meme_generator-0.2.0b11-cp39-abi3-manylinux_2_28_x86_64.whl", hash = "sha256:5b70e0418dcf2614175606fca24c7c356eab1da84e7b95588abc6ce83a9b9da8"},
-    {file = "meme_generator-0.2.0b11-cp39-abi3-win_amd64.whl", hash = "sha256:7017661ad2588ab95bd1ef219a2095699bff600c904f33e00a189199a69bd33a"},
+    {file = "meme_generator-0.2.0-cp39-abi3-macosx_10_12_x86_64.whl", hash = "sha256:d6be9ffdfea4f749ce021556514ed6ab6c381a0740fc48418460c206d90198a3"},
+    {file = "meme_generator-0.2.0-cp39-abi3-macosx_11_0_arm64.whl", hash = "sha256:3930ca42bb4d82bf515108ff1a26d97b2196fc00c13730d33d64534a74c06c75"},
+    {file = "meme_generator-0.2.0-cp39-abi3-manylinux_2_28_aarch64.whl", hash = "sha256:820fc7f5b42124abe84ecd5de07ec6d271a2f4763d681080b809930dfa4cbd0d"},
+    {file = "meme_generator-0.2.0-cp39-abi3-manylinux_2_28_x86_64.whl", hash = "sha256:3196dd5bf2c2070908a4d9d93e91c02e5214cca6efb956e5f79a0b621e27a896"},
+    {file = "meme_generator-0.2.0-cp39-abi3-win_amd64.whl", hash = "sha256:e64d10aa5950e796af58dc0192f05400c25e46a4ee2bcd400553a8e1e660ecd9"},
 ]
 
 [[package]]
@@ -831,6 +925,7 @@ files = [
 anyio = ">=4.4.0,<5.0.0"
 exceptiongroup = ">=1.2.2,<2.0.0"
 fastapi = {version = ">=0.93.0,<1.0.0", optional = true, markers = "extra == \"fastapi\" or extra == \"all\""}
+httpx = {version = ">=0.26.0,<1.0.0", extras = ["http2"], optional = true, markers = "extra == \"httpx\" or extra == \"all\""}
 loguru = ">=0.6.0,<1.0.0"
 pydantic = ">=1.10.0,<2.5.0 || >2.5.0,<2.5.1 || >2.5.1,<2.10.0 || >2.10.0,<2.10.1 || >2.10.1,<3.0.0"
 pygtrie = ">=2.4.1,<3.0.0"
@@ -1868,4 +1963,4 @@ type = ["pytest-mypy"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.9"
-content-hash = "b1328ceff72c13d04bb2b7597f6f48e16ed97cbc5406a5c6930fbccc3b0a4aa8"
+content-hash = "d1e15bdf9696c425a5df34c9b9957358933b208e34301c727732234eca2bf985"
