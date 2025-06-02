@@ -28,6 +28,14 @@ _✨ [Nonebot2](https://github.com/nonebot/nonebot2) 表情包制作插件 ✨_
 
 `nonebot-plugin-memes-api` 与 `nonebot-plugin-memes` 功能上基本一致
 
+> [!WARNING]
+>
+> 本插件自 v0.8.0 版本起使用 rust 版 [meme-generator-rs](https://github.com/MemeCrafters/meme-generator-rs)
+>
+> 之前的版本使用 python 版 [meme-generator](https://github.com/MemeCrafters/meme-generator)
+> 
+> 配置方式等有所区别，请注意区分！！！
+
 ### 安装
 
 - 使用 nb-cli
