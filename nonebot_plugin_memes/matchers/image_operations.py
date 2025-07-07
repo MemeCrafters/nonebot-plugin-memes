@@ -194,7 +194,8 @@ async def _(matcher: Matcher):
     await matcher.finish(
         "简单图片操作，支持的操作：\n"
         + "\n".join(
-            f"{i+1}、{'/'.join(command.keywords)}" for i, command in enumerate(commands)
+            f"{i + 1}、{'/'.join(command.keywords)}"
+            for i, command in enumerate(commands)
         )
     )
 
