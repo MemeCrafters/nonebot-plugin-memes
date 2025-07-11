@@ -39,7 +39,7 @@ _✨ [Nonebot2](https://github.com/nonebot/nonebot2) 表情包制作插件 ✨_
 > [!NOTE]
 > 已知问题
 >
-> - Windows 上运行时程序无报错退出
+> - Windows 下程序无报错退出
 >
 > 需要安装 [Visual C++ 运行时](https://aka.ms/vs/17/release/VC_redist.x64.exe)
 >
