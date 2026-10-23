@@ -125,10 +125,16 @@ def gif_reverse(img: bytes):
     return image_operations.gif_reverse(img)
 
 
+ZERO_SPEED_MESSAGE = "倍率、帧率和帧间隔必须大于 0"
+
+
 def gif_change_duration(text: str, img: bytes):
     p_float = r"\d{0,3}\.?\d{1,3}"
     if match := re.fullmatch(rf"({p_float})fps", text, re.I):
-        duration = 1 / float(match.group(1))
+        fps = float(match.group(1))
+        if not fps:
+            return ZERO_SPEED_MESSAGE
+        duration = 1 / fps
     elif match := re.fullmatch(rf"({p_float})(m?)s", text, re.I):
         duration = (
             float(match.group(1)) / 1000 if match.group(2) else float(match.group(1))
@@ -139,12 +145,20 @@ def gif_change_duration(text: str, img: bytes):
             return image_info
         duration = image_info.average_duration or 0.1
         if match := re.fullmatch(rf"({p_float})(?:x|X|倍速?)", text):
-            duration /= float(match.group(1))
+            speed = float(match.group(1))
+            if not speed:
+                return ZERO_SPEED_MESSAGE
+            duration /= speed
         elif match := re.fullmatch(rf"({p_float})%", text):
-            duration /= float(match.group(1)) / 100
+            speed = float(match.group(1)) / 100
+            if not speed:
+                return ZERO_SPEED_MESSAGE
+            duration /= speed
         else:
             return "请使用正确的倍率格式，如：0.5x、50%、20FPS、0.05s"
     if duration < 0.02:
+        if not duration:
+            return ZERO_SPEED_MESSAGE
         return (
             f"帧间隔必须大于 0.02 s（小于等于 50 FPS），\n"
             f"超过该限制可能会导致 GIF 显示速度不正常。\n"
